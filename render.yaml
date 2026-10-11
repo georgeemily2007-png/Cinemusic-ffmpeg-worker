@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: cinemusic-ffmpeg-worker
+    runtime: docker
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: RENDER_API_TOKEN
+        generateValue: true
+      - key: MAX_CLIPS
+        value: "40"
+      - key: MAX_FILE_MB
+        value: "500"
+      - key: CORS_ORIGINS
+        value: "*"
